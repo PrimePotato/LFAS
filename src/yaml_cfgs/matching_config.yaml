@@ -1,0 +1,8 @@
+KeyDetailMatching:
+  Initial:
+    total_fac_a: '"Total Facility A Commitments".*\[(.*)\]'
+    total_fac_b: '"Total Facility B Commitments".*\[(.*)\]'
+    total_fac_c: '"Total Facility C Commitments".*\[(.*)\]'
+    total_fac_d: '"Total Facility D Commitments".*\[(.*)\]'
+    facilities: '\s\s2\.1 The Facilities(.*)\s\s2\.2 \['
+

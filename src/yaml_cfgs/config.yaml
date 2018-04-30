@@ -1,0 +1,14 @@
+KeyDetailMatching:
+  Initial:
+    total_fac_a:
+      regex: '"Total Facility A Commitments".*\[(.*)\]'
+      name: Total Facility A Commitments
+    total_fac_b:
+      regex: '"Total Facility B Commitments".*\[(.*)\]'
+      name: Total Facility B Commitments
+    total_fac_c:
+      regex: '"Total Facility C Commitments".*\[(.*)\]'
+      name: Total Facility C Commitments
+    facilities:
+      regex: '\s\s2\.1 The Facilities(.*)\s\s2\.2 \['
+      name: The Facilites
