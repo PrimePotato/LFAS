@@ -1,4 +1,4 @@
-from lfa_scraper import LfaScraper
+from src.lfa_scraper import LfaScraper
 
 lfas = LfaScraper('/Users/EmRo/Documents/LFAS/test_text.txt')
 
