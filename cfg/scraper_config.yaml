@@ -1,0 +1,12 @@
+Initial:
+  Type: txt
+  Variables:
+    total_fac_a:
+      name : Total Facilities A
+      regex: ''
+    total_fac_b:
+      name : Total Facilities B
+      regex: ''
+    total_fac_c:
+      name : Total Facilities C
+      regex: ''

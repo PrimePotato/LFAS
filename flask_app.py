@@ -1,5 +1,7 @@
 from flask import render_template, Flask
 
+from src.lfa_scraper import LfaScraper
+
 kwargs = {
     'financial_covenant_dets': [
         ['Cashflow Cover', 'Senior Interest Cover'],
@@ -17,4 +19,7 @@ def page_forex_index():
 
 
 if __name__ == '__main__':
-    web_app.run(host='localhost', port=9000)
+    lfas = LfaScraper('data/base_template.txt')
+    lfas.get_value()
+
+    # web_app.run(host='localhost', port=9000)
