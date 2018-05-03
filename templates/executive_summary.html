@@ -16,7 +16,7 @@
 <div class="container">
 
     <h2>Senior Facilities Agreement</h2>
-    <table class="table">
+    <table class = "table table-bordered table-responsive">
         <thead>
         <tr>
             <th>Facility</th>
@@ -26,7 +26,28 @@
         </tr>
         </thead>
         <tbody>
-
+            <tr>
+                <td>A</td>
+                <td>{{ total_fac_a }}</td>
+                <td>{{ int_rate_a }}</td>
+                <td rowspan="3">
+                    3.1 Purpose
+                        (a) Each Borrower shall apply all amounts borrowed by it under Facility A, Facility B and Facility C towards:
+                        (i) payment to the Vendor of the purchase price for the [Target Shares] [and] [Target Assets] under the Acquisition Agreement; and
+                        (ii) payment of the Acquisition Costs (other than periodic fees)[; and
+                        (iii) refinancing certain Financial Indebtedness of the Target and its Subsidiaries to third parties],
+                </td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>{{ total_fac_b }}</td>
+                <td>{{ int_rate_b }}</td>
+            </tr>
+            <tr>
+                <td>C</td>
+                <td>{{ total_fac_c }}</td>
+                <td>{{ int_rate_c }}</td>
+            </tr>
         </tbody>
     </table>
 
@@ -35,7 +56,7 @@
 
 <div class="container">
     <h2>Margin Ratchets</h2>
-    <table class="table">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>Facility</th>
@@ -54,23 +75,23 @@
 <div class="container">
     <h2>Financial Covenants</h2>
     {% for row_dets in financial_covenant_dets %}
-    <div class="row">
-        {% for table_name in row_dets %}
-        <div class="col-md-6">
-            <table class="table">
-                <h3>{{ table_name }}</h3>
-                <thead>
-                <tr>
-                    <th>Relevant Period</th>
-                    <th>Ratio</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+        <div class="row">
+            {% for table_name in row_dets %}
+                <div class="col-md-6">
+                    <table class="table table-striped">
+                        <h3>{{ table_name }}</h3>
+                        <thead>
+                        <tr>
+                            <th>Relevant Period</th>
+                            <th>Ratio</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
     {% endfor %}
 </div>
 

@@ -3,10 +3,32 @@ Initial:
   Variables:
     total_fac_a:
       name : Total Facilities A
-      regex: ''
+      regex: '"Total Facility A Commitments".*\[(.*)\]'
+      flags: None
+      type: float
     total_fac_b:
       name : Total Facilities B
-      regex: ''
+      regex: '"Total Facility B Commitments".*\[(.*)\]'
+      flags: None
+      type: float
     total_fac_c:
       name : Total Facilities C
-      regex: ''
+      regex: '"Total Facility C Commitments".*\[(.*)\]'
+      flags: None
+      type: float
+    int_rate_a:
+      name : Interest Rate A
+      regex: 'Facility A Loan \[(.*)\] per cent\. per annum'
+      flags: None
+      type: float
+    int_rate_b:
+      name : Interest Rate B
+      regex: 'Facility B Loan \[(.*)\] per cent\. per annum'
+      flags: None
+      type: float
+    int_rate_c:
+      name : Interest Rate C
+      regex: 'Facility C Loan \[(.*)\] per cent\. per annum'
+      flags: None
+      type: float
+
