@@ -32,23 +32,6 @@
 
 </div>
 
-<div class="container">
-    <h2>Interest Margin Ratchets</h2>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Facility</th>
-            <th>Size(£m)</th>
-            <th>Interest(p.a%)</th>
-            <th>Purpose</th>
-        </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
-    </table>
-</div>
-</div>
 
 <div class="container">
     <h2>Margin Ratchets</h2>
@@ -70,10 +53,12 @@
 
 <div class="container">
     <h2>Financial Covenants</h2>
+    {% for row_dets in financial_covenant_dets %}
     <div class="row">
+        {% for table_name in row_dets %}
         <div class="col-md-6">
             <table class="table">
-                <h3>Cashflow Cover</h3>
+                <h3>{{ table_name }}</h3>
                 <thead>
                 <tr>
                     <th>Relevant Period</th>
@@ -84,82 +69,11 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-md-6">
-            <table class="table">
-                <h3>Senior Interest Cover</h3>
-                <thead>
-                <tr>
-                    <th>Relevant Period</th>
-                    <th>Ratio</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
+        {% endfor %}
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <table class="table">
-                <h3>Interest Cover</h3>
-                <thead>
-                <tr>
-                    <th>Relevant Period</th>
-                    <th>Ratio</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-6">
-            <table class="table">
-                <h3>Senior Adjusted Leverage</h3>
-                <thead>
-                <tr>
-                    <th>Relevant Period</th>
-                    <th>Ratio</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <table class="table">
-                <h3>Capital Expenditure</h3>
-                <thead>
-                <tr>
-                    <th>Relevant Period</th>
-                    <th>Ratio</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-6">
-            <table class="table">
-                <h3>Adjusted Leverage</h3>
-                <thead>
-                <tr>
-                    <th>Relevant Period</th>
-                    <th>Ratio</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
+    {% endfor %}
 </div>
+
 
 </body>
 
