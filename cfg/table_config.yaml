@@ -1,9 +1,20 @@
-Tables:
-  FinancialCovenants:
-    CashflowCover:
-      regex_chk: 'Cashflow Cover:'
-    InterestCover:
-    SeniorInterestCover:
-    CapitalExpenditure:
-    SeniorAdjustedLeverage:
-    AdjustedLeverage:
+FinancialCovenants:
+  CashflowCover:
+    location: '27.2.1'
+    regex_chk: 'Cashflow Cover:'
+  InterestCover:
+    location: '27.2.2'
+    regex_chk: 'Interest Cover:'
+  SeniorInterestCover:
+    location: '27.2.3'
+    regex_chk: 'Senior Interest Cover:'
+  CapitalExpenditure:
+    location: '27.2.4'
+    regex_chk: 'Capital Expenditure:'
+  SeniorAdjustedLeverage:
+    location: '27.2.5'
+    regex_chk: 'Senior [Adjusted] Leverage:'
+  AdjustedLeverage:
+    location: '27.2.6'
+    regex_chk: '[Adjusted] Leverage:'
+
