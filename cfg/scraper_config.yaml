@@ -31,4 +31,23 @@ Initial:
       regex: 'Facility C Loan \[(.*)\] per cent\. per annum'
       flags: None
       type: float
-
+    int_rate_rev:
+      name : Revolving Interest Rate
+      regex: 'Revolving Facility Loan \[(.*)\] per cent\. per annum'
+      flags: None
+      type: float
+    purpose_3_1a:
+      name : Purpose 3.1a
+      regex: '(3.1 Purpose\s+\(a\)[\s\S]+)\(c\)[\s\S]*3.2 Monitoring'
+      flags: None
+      type: float
+    purpose_3_1c:
+      name : Purpose 3.1c
+      regex: '3.1 Purpose[\s\S]+\(c\)([\s\S]+)3.2 Monitoring'
+      flags: None
+      type: float
+    cashflow_cover:
+      name : Cashflow Cover
+      regex: 'Cashflow Cover:.*shall not be less than \[(.*)\]'
+      flags: None
+      type: string

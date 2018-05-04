@@ -14,7 +14,6 @@
 
 
 <div class="container">
-
     <h2>Senior Facilities Agreement</h2>
     <table class = "table table-bordered table-responsive">
         <thead>
@@ -30,13 +29,7 @@
                 <td>A</td>
                 <td>{{ total_fac_a }}</td>
                 <td>{{ int_rate_a }}</td>
-                <td rowspan="3">
-                    3.1 Purpose
-                        (a) Each Borrower shall apply all amounts borrowed by it under Facility A, Facility B and Facility C towards:
-                        (i) payment to the Vendor of the purchase price for the [Target Shares] [and] [Target Assets] under the Acquisition Agreement; and
-                        (ii) payment of the Acquisition Costs (other than periodic fees)[; and
-                        (iii) refinancing certain Financial Indebtedness of the Target and its Subsidiaries to third parties],
-                </td>
+                <td rowspan="3"> {{ purpose_3_1a | nl2br }} </td>
             </tr>
             <tr>
                 <td>B</td>
@@ -48,9 +41,14 @@
                 <td>{{ total_fac_c }}</td>
                 <td>{{ int_rate_c }}</td>
             </tr>
+            <tr>
+                <td>Revolving Facility</td>
+                <td>{{ total_fac_c }}</td>
+                <td>{{ int_rate_rev }}</td>
+                <td>{{ purpose_3_1c }}</td>
+            </tr>
         </tbody>
     </table>
-
 </div>
 
 

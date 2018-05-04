@@ -1,0 +1,9 @@
+Tables:
+  FinancialCovenants:
+    CashflowCover:
+      regex_chk: 'Cashflow Cover:'
+    InterestCover:
+    SeniorInterestCover:
+    CapitalExpenditure:
+    SeniorAdjustedLeverage:
+    AdjustedLeverage:
