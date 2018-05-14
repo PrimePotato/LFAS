@@ -1,5 +1,6 @@
 from collections import Counter
 
+import os
 import yaml
 import pandas as pd
 from docx import Document
@@ -9,13 +10,15 @@ from docx.oxml.table import CT_Tbl
 from docx.table import _Cell, Table
 from docx.text.paragraph import Paragraph
 
+from flask_app import base_location
+
 
 class DocxScraper(object):
     def __init__(self, doc_location):
         self.doc_location = doc_location
         self.document = Document(doc_location)
         self.num_hdr = self.number_headings(self.document)
-        with open(r'D:\per_projects\LFAS\cfg\table_config.yaml') as stream:
+        with open(os.path.join(base_location, 'cfg/table_config.yaml')) as stream:
             self.tbl_cfg = yaml.load(stream)
         self.table_data = self._table_data()
 
@@ -82,4 +85,3 @@ class DocxScraper(object):
 if __name__ == "__main__":
     ds = DocxScraper(r'D:\per_projects\LFAS\data\template_docx.docx')
     print(ds.html_table('CashflowCover'))
-

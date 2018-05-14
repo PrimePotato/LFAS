@@ -1,12 +1,15 @@
+import os
 import yaml
 import re
+
+from flask_app import base_location
 
 
 class LfaScraper(object):
     def __init__(self, file_location, scraper='Initial', cfg_location='cfg/scraper_config.yaml'):
         self.scraper = scraper
         self.file_location = file_location
-        self.cfg_location = cfg_location
+        self.cfg_location = os.path.join(base_location, cfg_location)
 
         with open(file_location, 'rb') as f:
             self.raw_txt = f.read().decode('ascii', errors='ignore')

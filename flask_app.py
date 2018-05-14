@@ -1,5 +1,6 @@
 import re
 
+import os
 from flask import render_template, Flask
 from jinja2 import evalcontextfilter, escape, Markup
 
@@ -7,11 +8,12 @@ from src.docx_scraper import DocxScraper
 from src.lfa_scraper import LfaScraper
 
 web_app = Flask(__name__)
-
+base_location = os.path.dirname(os.path.realpath(__file__))
 _paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
 
-lfas = LfaScraper('data/test_text.txt')
-ds = DocxScraper(r'D:\per_projects\LFAS\data\template_docx.docx')
+lfas = LfaScraper(os.path.join(base_location, 'data/test_text.txt'))
+ds = DocxScraper(os.path.join(base_location, 'data/template_docx.docx'))
+
 
 kwargs = {
     'financial_covenant_dets': [
