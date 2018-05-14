@@ -9,8 +9,7 @@ from docx.oxml.text.paragraph import CT_P
 from docx.oxml.table import CT_Tbl
 from docx.table import _Cell, Table
 from docx.text.paragraph import Paragraph
-
-from flask_app import base_location
+from locations import base_location
 
 
 class DocxScraper(object):

@@ -4,11 +4,12 @@ import os
 from flask import render_template, Flask
 from jinja2 import evalcontextfilter, escape, Markup
 
+from locations import base_location
 from src.docx_scraper import DocxScraper
 from src.lfa_scraper import LfaScraper
 
 web_app = Flask(__name__)
-base_location = os.path.dirname(os.path.realpath(__file__))
+
 _paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
 
 lfas = LfaScraper(os.path.join(base_location, 'data/test_text.txt'))

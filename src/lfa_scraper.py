@@ -2,7 +2,7 @@ import os
 import yaml
 import re
 
-from flask_app import base_location
+from locations import base_location
 
 
 class LfaScraper(object):

@@ -1,8 +1,11 @@
 
 import docx
+import os
+
+from locations import base_location
 
 
-doc = docx.Document(r'D:\per_projects\LFAS\data\template_docx.docx')
+doc = docx.Document(os.path.join(base_location, '/data/template_docx.docx'))
 tables = doc.tables
 for table in tables:
     for row in table.rows:
