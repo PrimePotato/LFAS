@@ -15,7 +15,7 @@
 
 <div class="container">
     <h2>Senior Facilities Agreement</h2>
-    <table class = "table table-bordered table-responsive">
+    <table class="table table-bordered table-responsive">
         <thead>
         <tr>
             <th>Facility</th>
@@ -25,28 +25,28 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>A</td>
-                <td>{{ total_fac_a }}</td>
-                <td>{{ int_rate_a }}</td>
-                <td rowspan="3"> {{ purpose_3_1a | nl2br }} </td>
-            </tr>
-            <tr>
-                <td>B</td>
-                <td>{{ total_fac_b }}</td>
-                <td>{{ int_rate_b }}</td>
-            </tr>
-            <tr>
-                <td>C</td>
-                <td>{{ total_fac_c }}</td>
-                <td>{{ int_rate_c }}</td>
-            </tr>
-            <tr>
-                <td>Revolving Facility</td>
-                <td>{{ total_fac_c }}</td>
-                <td>{{ int_rate_rev }}</td>
-                <td>{{ purpose_3_1c }}</td>
-            </tr>
+        <tr>
+            <td>A</td>
+            <td>{{ total_fac_a }}</td>
+            <td>{{ int_rate_a }}</td>
+            <td rowspan="3"> {{ purpose_3_1a | nl2br }} </td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>{{ total_fac_b }}</td>
+            <td>{{ int_rate_b }}</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>{{ total_fac_c }}</td>
+            <td>{{ int_rate_c }}</td>
+        </tr>
+        <tr>
+            <td>Revolving Facility</td>
+            <td>{{ total_fac_c }}</td>
+            <td>{{ int_rate_rev }}</td>
+            <td>{{ purpose_3_1c }}</td>
+        </tr>
         </tbody>
     </table>
 </div>
@@ -74,19 +74,10 @@
     <h2>Financial Covenants</h2>
     {% for row_dets in financial_covenant_dets %}
         <div class="row">
-            {% for table_name in row_dets %}
+            {% for table_name, table_html in row_dets %}
                 <div class="col-md-6">
-                    <table class="table table-striped">
-                        <h3>{{ table_name }}</h3>
-                        <thead>
-                        <tr>
-                            <th>Relevant Period</th>
-                            <th>Ratio</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+                    <h3>{{ table_name }}</h3>
+                    {{ table_html | safe }}
                 </div>
             {% endfor %}
         </div>

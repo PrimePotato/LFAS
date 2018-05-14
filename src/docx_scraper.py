@@ -75,6 +75,11 @@ class DocxScraper(object):
                 num_map_para[hdr_num].append(para)
         return num_map_para
 
+    def html_table(self, name):
+        return self.table_data[name].to_html(index=False, classes='table')
 
-ds = DocxScraper(r'D:\per_projects\LFAS\data\template_docx.docx')
-print(ds.table_data)
+
+if __name__ == "__main__":
+    ds = DocxScraper(r'D:\per_projects\LFAS\data\template_docx.docx')
+    print(ds.html_table('CashflowCover'))
+

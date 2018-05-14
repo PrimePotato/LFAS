@@ -3,23 +3,26 @@ import re
 from flask import render_template, Flask
 from jinja2 import evalcontextfilter, escape, Markup
 
+from src.docx_scraper import DocxScraper
 from src.lfa_scraper import LfaScraper
-
-lfas = LfaScraper('data/test_text.txt')
-
-kwargs = {
-    'financial_covenant_dets': [
-        ['Cashflow Cover', 'Senior Interest Cover'],
-        ['Interest Cover', 'Senior Adjusted Leverage'],
-        ['Capital Expenditure', 'Adjusted Leverage'],
-    ]
-}
 
 web_app = Flask(__name__)
 
-print(lfas.key_values())
-
 _paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
+
+lfas = LfaScraper('data/test_text.txt')
+ds = DocxScraper(r'D:\per_projects\LFAS\data\template_docx.docx')
+
+kwargs = {
+    'financial_covenant_dets': [
+        [('Cashflow Cover', ds.html_table('CashflowCover')),
+         ('Senior Interest Cover', ds.html_table('SeniorInterestCover'))],
+        [('Interest Cover', ds.html_table('InterestCover')),
+         ('Senior Adjusted Leverage', ds.html_table('SeniorAdjustedLeverage'))],
+        [('Capital Expenditure', ds.html_table('CapitalExpenditure')),
+         ('Adjusted Leverage', ds.html_table('AdjustedLeverage'))],
+    ]
+}
 
 
 @web_app.template_filter()
