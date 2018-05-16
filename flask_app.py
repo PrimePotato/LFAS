@@ -38,9 +38,9 @@ def nl2br(eval_ctx, value):
     return result
 
 
-@web_app.route('/summary')
+@web_app.route('/')
 def page_forex_index():
-    return render_template('executive_summary.html', **kwargs, **lfas.key_values())
+    return render_template('summary_tabs.html', **kwargs, **lfas.key_values())
 
 
 if __name__ == '__main__':

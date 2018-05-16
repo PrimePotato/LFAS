@@ -78,7 +78,7 @@ class DocxScraper(object):
         return num_map_para
 
     def html_table(self, name):
-        return self.table_data[name].to_html(index=False, classes='table')
+        return self.table_data[name].to_html(index=False, classes='table table-bordered table-responsive')
 
 
 if __name__ == "__main__":

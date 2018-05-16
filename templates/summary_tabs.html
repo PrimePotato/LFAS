@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Loan Agreement Summary</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-color: lightgrey;
+        }
+
+        .lfa_title {
+            border: 0px solid #ccc;
+            padding: 1px;
+            background-color: #4d4d4d;
+            color: whitesmoke;
+        }
+
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: steelblue;
+            color: white;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+            color: white;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: darkslateblue;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: darkslateblue;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+            background-color: whitesmoke;
+        }
+
+        .tablinks {
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="lfa_title text-center" style="margin-bottom:0">
+    <h1>Loan Agreement Summary</h1>
+</div>
+
+
+<div class="col-md-10 offset-md-1">
+
+    <div class="tab">
+        <button class="tablinks" id="defaultOpen" onclick="openTabContents(event, 'SeniorFacilitiesAgreement')">Senior
+            Facilities Agreement
+        </button>
+        <button class="tablinks" onclick="openTabContents(event, 'MarginRatchets')">Margin Ratchets</button>
+        <button class="tablinks" onclick="openTabContents(event, 'FinancialCovenants')">Financial Covenants</button>
+    </div>
+
+    <div class="tabcontent" id="SeniorFacilitiesAgreement">
+        <table class="table table-bordered table-responsive">
+            <thead>
+            <tr>
+                <th>Facility</th>
+                <th>Size(£m)</th>
+                <th>Interest(p.a%)</th>
+                <th>Purpose</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>A</td>
+                <td>{{ total_fac_a }}</td>
+                <td>{{ int_rate_a }}</td>
+                <td rowspan="3"> {{ purpose_3_1a | nl2br }} </td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>{{ total_fac_b }}</td>
+                <td>{{ int_rate_b }}</td>
+            </tr>
+            <tr>
+                <td>C</td>
+                <td>{{ total_fac_c }}</td>
+                <td>{{ int_rate_c }}</td>
+            </tr>
+            <tr>
+                <td>Revolving Facility</td>
+                <td>{{ total_fac_c }}</td>
+                <td>{{ int_rate_rev }}</td>
+                <td>{{ purpose_3_1c }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="tabcontent" id="MarginRatchets">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Facility</th>
+                <th>Size(£m)</th>
+                <th>Interest(p.a%)</th>
+                <th>Purpose</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="tabcontent" id="FinancialCovenants">
+        {% for row_dets in financial_covenant_dets %}
+            <div class="row">
+                {% for table_name, table_html in row_dets %}
+                    <div class="col-md-6">
+                        <h5>{{ table_name }}</h5>
+                        {{ table_html | safe }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<script>
+    function openTabContents(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    document.getElementById("defaultOpen").click();
+
+</script>
+
+</body>
+
+</html>
